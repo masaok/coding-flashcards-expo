@@ -1,6 +1,9 @@
 import { StyleSheet, StatusBar } from 'react-native'
 
-import { WebView } from 'react-native-webview'
+// https://docs.expo.dev/versions/latest/sdk/safe-area-context/
+import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context'
+
+import HomeScreen from './src/screens/HomeScreen'
 
 const styles = StyleSheet.create({
   container: {
@@ -16,13 +19,12 @@ const styles = StyleSheet.create({
   },
 })
 
-const PROD_URL = 'https://coding-flashcards-web.vercel.app'
-const DEV_URL = 'http://localhost:3000'
-
-const URL = __DEV__ ? DEV_URL : PROD_URL
-
 const App = () => {
-  return <WebView style={styles.webview} source={{ uri: URL }} />
+  return (
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+      <HomeScreen />
+    </SafeAreaProvider>
+  )
 }
 
 export default App
