@@ -16,7 +16,10 @@ const styles = StyleSheet.create({
   },
 })
 
-const URL = 'https://coding-flashcards-web.vercel.app'
+const PROD_URL = 'https://coding-flashcards-web.vercel.app'
+const DEV_URL = 'http://localhost:3000'
+
+const URL = __DEV__ ? DEV_URL : PROD_URL
 
 const App = () => {
   return <WebView style={styles.webview} source={{ uri: URL }} />
