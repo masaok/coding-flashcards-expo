@@ -20,10 +20,17 @@ const styles = StyleSheet.create({
 })
 
 const PROD_URL = 'https://coding-flashcards-web.vercel.app'
-const DEV_URL = 'http://localhost:3000' // iOS Simulator and Android Emulator only
-const DEV_IP_URL = 'http://10.0.1.77:3000' // Local IP so Expo works on phone
+const DEV_URL = 'https://localhost:3000' // iOS Simulator and Android Emulator only
 
-const URL = __DEV__ ? DEV_IP_URL : PROD_URL
+// const IP_HTTP_URL = 'http://10.0.1.77:3000' // Local IP so Expo works on phone
+const IP_HTTPS_URL = 'https://10.0.1.77:3000' // Local IP so Expo works on phone
+
+const LOCAL_URL = 'http://localhost:3000' // iOS Simulator and Android Emulator only
+
+const URL = IP_HTTPS_URL
+
+// const URL = __DEV__ ? DEV_IP_URL : PROD_URL
+// const URL = PROD_URL
 
 const HomeScreen = () => {
   const insets = useSafeAreaInsets()
